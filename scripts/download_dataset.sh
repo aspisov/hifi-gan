@@ -1,0 +1,1 @@
+uv run python3 scripts/download_dataset.py --link https://disk.yandex.ru/d/Mzh9T9OEZKSsww --download_location .

@@ -1,0 +1,2 @@
+# uv run --with gdown gdown --fuzzy "https://drive.google.com/file/d/1do975qcOf02ofVf2nTdii4mzJeb9154Y/view?usp=sharing"
+uv run --with gdown gdown --fuzzy "https://drive.google.com/file/d/14YIifRMW8TJzYgoolAZYssF2P0r0KB0k/view?usp=sharing"

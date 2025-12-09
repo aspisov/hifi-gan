@@ -1,0 +1,1 @@
+uv run python3 train.py -cn=train_hifigan.yaml

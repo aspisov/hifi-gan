@@ -1,0 +1,14 @@
+PROMPTS_FILE="$(mktemp)"
+cat <<'EOF' > "${PROMPTS_FILE}"
+Deep Learning in Audio course at HSE University offers an exciting and challenging exploration of cutting-edge techniques in audio processing, from speech recognition to music analysis. With complex homeworks that push students to apply theory to real-world problems, it provides a hands-on, rigorous learning experience that is both demanding and rewarding.
+Dmitri Shostakovich was a Soviet-era Russian composer and pianist who became internationally known after the premiere of his First Symphony in 1926 and thereafter was regarded as a major composer.
+Lev Termen, better known as Leon Theremin was a Russian inventor, most famous for his invention of the theremin, one of the first electronic musical instruments and the first to be mass-produced.
+Mihajlo Pupin was a founding member of National Advisory Committee for Aeronautics (NACA) on 3 March 1915, which later became NASA, and he participated in the founding of American Mathematical Society and American Physical Society.
+Leonard Bernstein was an American conductor, composer, pianist, music educator, author, and humanitarian. Considered to be one of the most important conductors of his time, he was the first American-born conductor to receive international acclaim.
+EOF
+
+uv run python synthesize.py -cn=inference_text \
+  ++datasets.test.prompts_file="${PROMPTS_FILE}" \
+  inferencer.from_pretrained=checkpoint-epoch100-50000.pth \
+  inferencer.save_path=grade_sentences \
+  writer=cometml writer.run_name=grade_sentences_v2

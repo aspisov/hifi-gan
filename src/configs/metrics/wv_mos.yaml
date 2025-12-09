@@ -1,0 +1,8 @@
+train: []
+inference:
+  - _target_: src.metrics.WV_MOS_Metric
+    name: WV_MOS
+    source_sr: 22050
+    target_sr: 16000
+    device: auto
+device: "auto"

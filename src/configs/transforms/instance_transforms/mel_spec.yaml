@@ -1,0 +1,12 @@
+train:
+  get_spectrogram:
+    _target_: src.transforms.MelSpectrogram
+    config:
+      _target_: src.transforms.MelSpectrogramConfig
+    normalize_audio: True
+inference:
+  get_spectrogram:
+    _target_: src.transforms.MelSpectrogram
+    config:
+      _target_: src.transforms.MelSpectrogramConfig
+    normalize_audio: True

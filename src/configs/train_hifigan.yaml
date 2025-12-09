@@ -1,0 +1,46 @@
+defaults:
+  - generator: hifigan
+  - discriminator: hifigan
+  - writer: cometml
+  - metrics: default
+  - datasets: ljspeech
+  - dataloader: hifigan_train
+  - transforms: mel_spec
+  - _self_
+
+optimizer:
+  _target_: torch.optim.AdamW
+  lr: 2e-4
+  betas: [0.8, 0.99]
+  weight_decay: 0.01
+
+lr_scheduler:
+  _target_: torch.optim.lr_scheduler.ExponentialLR
+  gamma: 0.99999
+
+loss_function:
+  _target_: src.loss.HiFiGANGeneratorLoss
+
+d_loss_function:
+  _target_: src.loss.HiFiGANDiscriminatorLoss
+
+trainer:
+  log_step: 50
+  n_epochs: 150
+  epoch_len: 500
+  device_tensors: ["spectrogram", "audio"]
+  device: auto
+  override: True
+  monitor: "min test_g_loss"
+  save_period: 20
+  early_stop: ${trainer.n_epochs}
+  save_dir: "saved"
+  seed: 1
+  max_grad_norm: 100
+
+writer:
+  run_name: "testing"
+  project_name: "HiFi-GAN"
+  mode: "online"
+  log_checkpoints: True
+  loss_names: ["g_loss", "g_adv_loss", "g_feat_loss", "g_mel_loss", "d_loss", "d_mpd_loss", "d_msd_loss"]

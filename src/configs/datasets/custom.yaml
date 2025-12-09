@@ -1,0 +1,6 @@
+test:
+  _target_: src.datasets.CustomDirDataset
+  instance_transforms: ${transforms.instance_transforms.inference}
+  data_dir: data/datasets/custom
+  transcription_subdir: transcriptions
+  segment: 'inference'

@@ -1,0 +1,15 @@
+defaults:
+  - generator: hifigan
+  - metrics: default
+  - datasets: text
+  - dataloader: hifigan_inference
+  - transforms: text
+  - writer: cometml
+  - _self_
+inferencer:
+  device_tensors: ["spectrogram"]
+  device: auto
+  save_path: "result"
+  seed: 1
+  from_pretrained: "saved/model_best.pth"
+  gt_audio_dir: null

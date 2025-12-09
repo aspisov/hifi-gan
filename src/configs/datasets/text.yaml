@@ -1,0 +1,6 @@
+test:
+  _target_: src.datasets.TextPromptDataset
+  instance_transforms: ${transforms.instance_transforms.inference}
+  prompts:
+    - "This is a placeholder sentence."
+  segment: 'inference'

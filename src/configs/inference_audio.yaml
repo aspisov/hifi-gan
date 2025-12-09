@@ -1,0 +1,14 @@
+defaults:
+  - generator: hifigan
+  - metrics: default
+  - datasets: custom
+  - dataloader: hifigan_inference
+  - transforms: mel_spec
+  - writer: cometml
+  - _self_
+inferencer:
+  device_tensors: ["spectrogram", "audio"]
+  device: auto
+  save_path: "result"
+  seed: 1
+  from_pretrained: "saved/testing/model_best.pth"
