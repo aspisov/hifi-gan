@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 os.environ["HYDRA_FULL_ERROR"] = "1"
 
 
-@hydra.main(version_base=None, config_path="src/configs", config_name="baseline")
+@hydra.main(version_base=None, config_path="src/configs", config_name="train_hifigan")
 def main(config):
     """
     Main script for training. Instantiates the model, optimizer, scheduler,

@@ -4,7 +4,18 @@
 
 [Comet ML report](https://www.comet.com/dmitriy-aspisov/hifi-gan/reports/FbfbMJKUTULlWbC1rF1ZQpO5A)
 
-## Train
+## Environment & Installation
+
+> **Python**: 3.12 (required by Torch 2.7 which is used on Blackwell GPUs)
+> **Package manager**: [uv](https://docs.astral.sh/uv/)
+
+Clone the repository and install all dependencies:
+
+```bash
+uv sync
+```
+
+## Training
 
 To train model with base config run:
 ```sh 
