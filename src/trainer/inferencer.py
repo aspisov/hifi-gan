@@ -203,6 +203,9 @@ class Inferencer(BaseTrainer):
 
         self.evaluation_metrics.reset()
 
+        if self.writer is not None:
+            self.writer.set_step(0, part)
+
         # create Save dir
         if self.save_path is not None:
             (self.save_path / part).mkdir(exist_ok=True, parents=True)
@@ -219,5 +222,8 @@ class Inferencer(BaseTrainer):
                     part=part,
                     metrics=self.evaluation_metrics,
                 )
+
+        if self.writer is not None:
+            self._log_scalars(self.evaluation_metrics)
 
         return self.evaluation_metrics.result()
